@@ -1,1 +1,1 @@
-{"type": "block", "layer": 5, "block": 1, "features": [{"geom": {"pts": [[-603.5679077263921, -1681.1682149227709, 1356.0]], "r": 15}, "mtl": {"idx": 0}}, {"geom": {"pts": [[-4726.841846710071, 334.9538728063926, 1263.0]], "r": 15}, "mtl": {"idx": 0}}], "featureCount": 2, "startIndex": 50}
+{"type": "block", "layer": 5, "block": 1, "features": [{"geom": {"pts": [[-4652.6343862861395, 606.7462380109355, 1263.0]], "r": 15}, "mtl": {"idx": 0}}], "featureCount": 1, "startIndex": 50}
