@@ -125,10 +125,13 @@ app.init(container);       // initialize viewer
 app.loadSceneFile("./data/index/scene.json", function (scene) {
   // scene file has been loaded
   app.start();
+
+  // --- ADD THESE LINES TO LIMIT ROTATION ---
+  app.controls.maxPolarAngle = Math.PI / 2.5; // Prevents looking under the map (90 degrees)
+  app.controls.minPolarAngle = 0;           // Prevents flipping over the top
+  // ------------------------------------------
+
 }, function (scene) {
   // all relevant files have been loaded
-
 });
 </script>
-</body>
-</html>
