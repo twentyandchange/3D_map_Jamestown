@@ -1,1 +1,1 @@
-{"type": "block", "layer": 0, "block": 0, "features": [{"geom": {"pts": [[-695.6061197910458, 590.3515624990687, 1310.439697265625]], "rotateX": 0, "rotateY": 0, "rotateZ": 10, "scale": 0.75}, "model": 0}], "featureCount": 1, "startIndex": 0}
+{"type": "block", "layer": 0, "block": 0, "features": [{"geom": {"pts": [[-575.220703125, 575.7994791660458, 1310.439697265625]], "rotateX": 0, "rotateY": 0, "rotateZ": 10, "scale": 0.75}, "model": 0}], "featureCount": 1, "startIndex": 0}
