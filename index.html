@@ -120,9 +120,6 @@ var container = document.getElementById("view"),
     app = Q3D.application,
     gui = Q3D.gui;
 
-app.init(container);       // initialize viewer
-
-// load the scene
 app.loadSceneFile("./data/index/scene.json", function (scene) {
   // scene file has been loaded
   app.start();
