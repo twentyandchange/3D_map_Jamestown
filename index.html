@@ -10,6 +10,40 @@
 #popup, #header, #layerpanel {
   left: 36px;
 }
+
+/* NEW LEGEND STYLES */
+#legend-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1001; /* Higher than other panels */
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-family: sans-serif;
+}
+#legend-image {
+    display: block;
+    width: 200px;
+    max-width: 40vw; 
+    height: auto;
+}
+.toggle-btn {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    background: #f0f0f0;
+    border: 1px solid #999;
+    padding: 2px 8px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+@media (max-width: 600px) {
+    #legend-container { top: 10px; left: 10px; padding: 5px; }
+    #legend-image { width: 120px; }
+}
 </style>
 <script src="./threejs/three.min.js"></script>
 <script src="./threejs/OrbitControls.js"></script>
@@ -18,9 +52,6 @@
 <script src="./threejs/loaders/GLTFLoader.js"></script>
 </head>
 <body>
-<div id="legend" style="position:fixed; bottom:20px; right:20px; z-index:1000; background:white; padding:10px; border:1px solid #ccc;">
-    <img src="legend_x.png" alt="Map Legend">
-</div>
 <div id="view">
   <div id="northarrow"></div>
   <div id="navigation"></div>
@@ -91,6 +122,13 @@
 <!-- progress bar -->
 <div id="progress"><div id="progressbar"></div></div>
 
+<div id="legend-container">
+    <button class="toggle-btn" onclick="toggleLegend()">Hide Legend</button>
+    <div id="legend-content">
+        <img src="legend_x.png" id="legend-image" alt="Map Legend">
+    </div>
+</div>
+
 <!-- menu -->
 <div id="toolbtns">
   <div id="layerbtn"></div>
@@ -136,6 +174,19 @@ app.loadSceneFile("./data/index/scene.json", function (scene) {
   // ------------------------------------------
 
 }, function (scene) {
-  // all relevant files have been loaded
-});
+    // all relevant files have been loaded
+  });
+
+  // NEW TOGGLE FUNCTION
+  function toggleLegend() {
+      var content = document.getElementById("legend-content");
+      var btn = document.querySelector(".toggle-btn");
+      if (content.style.display === "none") {
+          content.style.display = "block";
+          btn.innerText = "Hide Legend";
+      } else {
+          content.style.display = "none";
+          btn.innerText = "Show Legend";
+      }
+  }
 </script>
