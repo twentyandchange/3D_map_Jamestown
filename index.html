@@ -10,29 +10,31 @@
 #popup, #header, #layerpanel {
   left: 36px;
 }
-
-/* NEW LEGEND STYLES */
+/* Custom Legend Styles */
 #legend-container {
     position: fixed;
-    top: 20px;
-    left: 25px;
-    z-index: 1001; /* Higher than other panels */
-    background: rgba(255, 255, 255, 0.9);
+    top: 10px;          /* Distance from top */
+    left: 25px;         /* Distance from left */
+    z-index: 1001;      /* Ensures it stays above the map */
+    background: rgba(255, 255, 255, 0.8); /* White with 80% transparency */
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    font-family: sans-serif;
+    border-radius: 5px;
+    pointer-events: none; /* Allows you to click "through" the legend to the map */
 }
-#legend-image {
+
+#legend-container img {
     display: block;
-    width: 400px;
-    max-width: 40vw; 
-    height: auto;
+    width: 250px;       /* Default width for desktop */
+    max-width: 35vw;    /* Responsive: image will never exceed 35% of screen width */
+    height: auto;       /* Maintains aspect ratio */
 }
+
+/* Mobile specific adjustment */
 @media (max-width: 600px) {
-    #legend-container { top: 10px; left: 10px; padding: 5px; }
-    #legend-image { width: 120px; }
+    #legend-container img {
+        width: 150px;   /* Smaller fixed width for phones */
+    }
 }
 </style>
 <script src="./threejs/three.min.js"></script>
@@ -42,6 +44,9 @@
 <script src="./threejs/loaders/GLTFLoader.js"></script>
 </head>
 <body>
+<div id="legend-container">
+    <img src="legend_x.png" alt="Map Legend">
+</div>
 <div id="view">
   <div id="northarrow"></div>
   <div id="navigation"></div>
@@ -155,5 +160,8 @@ app.loadSceneFile("./data/index/scene.json", function (scene) {
   app.controls.maxPolarAngle = Math.PI / 2.5; // Prevents looking under the map (90 degrees)
   app.controls.minPolarAngle = 0;           // Prevents flipping over the top
   // ------------------------------------------
-  }
+
+}, function (scene) {
+  // all relevant files have been loaded
+});
 </script>
