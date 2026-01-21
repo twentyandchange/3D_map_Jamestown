@@ -15,7 +15,7 @@
 #legend-container {
     position: fixed;
     top: 20px;
-    left: 20px;
+    left: 25px;
     z-index: 1001; /* Higher than other panels */
     background: rgba(255, 255, 255, 0.9);
     padding: 10px;
@@ -26,19 +26,9 @@
 }
 #legend-image {
     display: block;
-    width: 200px;
+    width: 400px;
     max-width: 40vw; 
     height: auto;
-}
-.toggle-btn {
-    display: block;
-    margin-bottom: 8px;
-    cursor: pointer;
-    background: #f0f0f0;
-    border: 1px solid #999;
-    padding: 2px 8px;
-    font-size: 12px;
-    border-radius: 3px;
 }
 @media (max-width: 600px) {
     #legend-container { top: 10px; left: 10px; padding: 5px; }
@@ -122,13 +112,6 @@
 <!-- progress bar -->
 <div id="progress"><div id="progressbar"></div></div>
 
-<div id="legend-container">
-    <button class="toggle-btn" onclick="toggleLegend()">Hide Legend</button>
-    <div id="legend-content">
-        <img src="legend_x.png" id="legend-image" alt="Map Legend">
-    </div>
-</div>
-
 <!-- menu -->
 <div id="toolbtns">
   <div id="layerbtn"></div>
@@ -172,21 +155,5 @@ app.loadSceneFile("./data/index/scene.json", function (scene) {
   app.controls.maxPolarAngle = Math.PI / 2.5; // Prevents looking under the map (90 degrees)
   app.controls.minPolarAngle = 0;           // Prevents flipping over the top
   // ------------------------------------------
-
-}, function (scene) {
-    // all relevant files have been loaded
-  });
-
-  // NEW TOGGLE FUNCTION
-  function toggleLegend() {
-      var content = document.getElementById("legend-content");
-      var btn = document.querySelector(".toggle-btn");
-      if (content.style.display === "none") {
-          content.style.display = "block";
-          btn.innerText = "Hide Legend";
-      } else {
-          content.style.display = "none";
-          btn.innerText = "Show Legend";
-      }
   }
 </script>
