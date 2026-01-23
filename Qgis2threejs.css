@@ -17,8 +17,8 @@ body {
 }
 
 #view.sky {
-  background: -webkit-gradient(linear, left top, left bottom, from(#98c8f6), color-stop(0.4, #cbebff), to(#f0f9ff));
-  background: linear-gradient(to bottom, #98c8f6 0%,#cbebff 40%,#f0f9ff 100%);
+   background: -webkit-linear-gradient(90deg, hsla(216, 100%, 13%, 1) 0%, hsla(216, 42%, 57%, 1) 100%);
+   background: linear-gradient(90deg, hsla(216, 100%, 13%, 1) 0%, hsla(216, 42%, 57%, 1) 100%);
 }
 
 .hidden {
