@@ -36,6 +36,48 @@
         display: none;  /* Hides the entire legend container on mobile */
     }
 }
+
+/* Title styles */
+#title {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    z-index: 100;
+    color: #da251c;
+    font-size: 28px;
+    font-family: Sans-serif;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Hide full title on mobile */
+#title .full-title {
+    display: inline;
+}
+
+#title .mobile-title {
+    display: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+    #title {
+        font-size: 16px;  /* Smaller font for mobile */
+        padding: 5px 10px; /* Less padding */
+        top: 10px;
+        left: 10px;
+    }
+    
+    #title .full-title {
+        display: none;  /* Hide full title */
+    }
+    
+    #title .mobile-title {
+        display: inline;  /* Show mobile title */
+    }
+}
 </style>
 
 <script src="./threejs/three.min.js"></script>
@@ -47,21 +89,18 @@
 
 
 <body>
-  <div id="title" style="position: absolute; top: 30px; left: 20px; z-index: 100; 
-       color: #da251c; font-size: 28px; font-family: Sans-serif; font-style: bold;
-     	background-color: rgba(255, 255, 255, 0.8);
-     	padding: 10px 20px;
-     	border-radius: 5px;">
-    Proximity of Tobacco Retailers to Jamestown's Children and Youth
+  <div id="title">
+    <span class="full-title">Proximity of Tobacco Retailers to Jamestown's Children and Youth</span>
+    <span class="mobile-title">Tobacco Retailers' Proximity to Youth<br>(Darker shading = more youth residents)</span>
   </div>
-
-<div id="legend-container">
+  
+  <div id="legend-container">
     <img src="legend_x.png" alt="Map Legend">
-</div>
-<div id="view">
-  <div id="northarrow"></div>
-  <div id="navigation"></div>
-</div>
+  </div>
+  <div id="view">
+    <div id="northarrow"></div>
+    <div id="navigation"></div>
+  </div>
 </body>
 
 <!-- progress bar -->
